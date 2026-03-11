@@ -1,0 +1,60 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f8;
+}
+
+/* ヘッダー */
+header{
+    background:#003366;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+/* ナビゲーション */
+nav{
+    background:#0055aa;
+    padding:10px;
+}
+
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* コンテンツ */
+.container{
+    width:80%;
+    margin:auto;
+    padding:20px;
+}
+
+/* お知らせカード */
+.news{
+    background:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ボタン */
+button{
+    background:#0077cc;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005fa3;
+}
