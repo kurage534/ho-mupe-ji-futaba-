@@ -1,1 +1,0 @@
-# ho-mupe-ji-futaba-
