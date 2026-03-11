@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>○○学校公式サイト</title>
-<style>
-body{
-font-family:sans-serif;
-background:#f0f0f0;
-text-align:center;
-}
-header{
-background:blue;
-color:white;
-padding:20px;
-}
-</style>
+<title>学校サイト</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>○○学校公式ホームページ</h1>
+<h1>〇〇学校ポータル</h1>
 </header>
 
-<h2>お知らせ</h2>
-<p>入学式は4月10日です。</p>
+<div class="container">
+
+<!-- ログイン -->
+<div id="loginArea">
+<h2>ログイン</h2>
+
+<input id="username" placeholder="ユーザー名">
+<input id="password" type="password" placeholder="パスワード">
+
+<button onclick="login()">ログイン</button>
+</div>
+
+<!-- 掲示板 -->
+<div id="boardArea" style="display:none">
+
+<h2>学校掲示板</h2>
+
+<textarea id="postText" placeholder="投稿を書く"></textarea>
+<button onclick="addPost()">投稿</button>
+
+<h3>投稿一覧</h3>
+
+<div id="posts"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
