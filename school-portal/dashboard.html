@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>学校ポータル</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h2>学校ポータル</h2>
+
+<div>
+
+<span id="user"></span>
+
+<button onclick="logout()">ログアウト</button>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+<div class="card">
+
+<h3>掲示板</h3>
+
+<textarea id="text" placeholder="投稿を書く"></textarea>
+
+<button onclick="post()">投稿</button>
+
+</div>
+
+
+<div id="posts"></div>
+
+</div>
+
+<script type="module" src="js/board.js"></script>
+
+</body>
+
+</html>
