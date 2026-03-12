@@ -1,10 +1,10 @@
 import { app } from "./firebase.js";
 
 import {
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword,
-signOut
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 
 const auth = getAuth(app);
@@ -13,18 +13,18 @@ const loginBtn = document.getElementById("loginBtn");
 const registerBtn = document.getElementById("registerBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-if(loginBtn){
+if (loginBtn) {
 
-loginBtn.addEventListener("click",()=>{
+loginBtn.addEventListener("click", () => {
 
-const email=document.getElementById("email").value;
-const password=document.getElementById("password").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
 
-signInWithEmailAndPassword(auth,email,password)
-.then(()=>{
-window.location="dashboard.html";
+signInWithEmailAndPassword(auth, email, password)
+.then(() => {
+window.location = "dashboard.html";
 })
-.catch((error)=>{
+.catch((error) => {
 alert(error.message);
 });
 
@@ -32,18 +32,18 @@ alert(error.message);
 
 }
 
-if(registerBtn){
+if (registerBtn) {
 
-registerBtn.addEventListener("click",()=>{
+registerBtn.addEventListener("click", () => {
 
-const email=document.getElementById("email").value;
-const password=document.getElementById("password").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
 
-createUserWithEmailAndPassword(auth,email,password)
-.then(()=>{
+createUserWithEmailAndPassword(auth, email, password)
+.then(() => {
 alert("登録成功");
 })
-.catch((error)=>{
+.catch((error) => {
 alert(error.message);
 });
 
@@ -51,12 +51,12 @@ alert(error.message);
 
 }
 
-if(logoutBtn){
+if (logoutBtn) {
 
-logoutBtn.addEventListener("click",()=>{
+logoutBtn.addEventListener("click", () => {
 
-signOut(auth).then(()=>{
-window.location="index.html";
+signOut(auth).then(() => {
+window.location = "index.html";
 });
 
 });
