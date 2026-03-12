@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>学校サイト</title>
+<title>学校ポータル</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>〇〇学校ポータル</h1>
+<h1>学校ポータルサイト</h1>
 </header>
 
 <div class="container">
 
-<!-- ログイン -->
 <div id="loginArea">
+
 <h2>ログイン</h2>
 
-<input id="username" placeholder="ユーザー名">
-<input id="password" type="password" placeholder="パスワード">
+<input id="loginUser" placeholder="ユーザー名">
+<input id="loginPass" type="password" placeholder="パスワード">
 
 <button onclick="login()">ログイン</button>
+
+<h2>新規登録</h2>
+
+<input id="regUser" placeholder="ユーザー名">
+<input id="regPass" type="password" placeholder="パスワード">
+
+<button onclick="register()">登録</button>
+
 </div>
 
-<!-- 掲示板 -->
+
 <div id="boardArea" style="display:none">
 
-<h2>学校掲示板</h2>
+<h2 id="welcome"></h2>
 
-<textarea id="postText" placeholder="投稿を書く"></textarea>
+<button onclick="logout()">ログアウト</button>
+
+<h3>掲示板</h3>
+
+<textarea id="postText"></textarea>
+
 <button onclick="addPost()">投稿</button>
-
-<h3>投稿一覧</h3>
 
 <div id="posts"></div>
 
