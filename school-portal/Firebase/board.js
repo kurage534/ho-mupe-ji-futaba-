@@ -1,72 +1,55 @@
 import { app } from "./firebase.js";
 
-import { getAuth, onAuthStateChanged, signOut }
-from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
 import {
-getFirestore,
-collection,
-addDoc,
-getDocs,
-orderBy,
-query
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
 
-const auth=getAuth(app);
-const db=getFirestore(app);
+const db = getFirestore(app);
 
-onAuthStateChanged(auth,(user)=>{
+const postBtn = document.getElementById("postBtn");
+const messageInput = document.getElementById("message");
+const board = document.getElementById("board");
 
-if(user){
+// 投稿
+postBtn.addEventListener("click", async () => {
 
-document.getElementById("user").innerText=user.email;
-loadPosts();
+  const message = messageInput.value;
 
-}else{
+  if(message === "") return;
 
-location.href="index.html";
+  await addDoc(collection(db, "posts"), {
+    message: message
+  });
 
-}
+  messageInput.value = "";
 
-});
-
-window.post=async function(){
-
-const text=document.getElementById("text").value;
-
-await addDoc(collection(db,"posts"),{
-
-message:text,
-date:new Date()
+  loadPosts();
 
 });
 
-document.getElementById("text").value="";
-
-loadPosts();
-
-}
-
+// 投稿読み込み
 async function loadPosts(){
 
-const q=query(collection(db,"posts"),orderBy("date","desc"));
+  board.innerHTML = "";
 
-const snapshot=await getDocs(q);
+  const querySnapshot = await getDocs(collection(db, "posts"));
 
-let html="";
+  querySnapshot.forEach((doc) => {
 
-snapshot.forEach(doc=>{
+    const data = doc.data();
 
-html+=`<div class="card">${doc.data().message}</div>`;
+    const div = document.createElement("div");
+    div.className = "post";
 
-});
+    div.innerText = data.message;
 
-document.getElementById("posts").innerHTML=html;
+    board.appendChild(div);
 
-}
-
-window.logout=function(){
-
-signOut(auth);
+  });
 
 }
+
+loadPosts();
