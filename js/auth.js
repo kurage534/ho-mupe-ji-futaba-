@@ -1,11 +1,11 @@
 import { app } from "./firebase.js";
 
 import {
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword,
-signOut
-} from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const auth = getAuth(app);
 
@@ -13,12 +13,12 @@ const loginBtn = document.getElementById("loginBtn");
 const registerBtn = document.getElementById("registerBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-if(loginBtn){
+if (loginBtn) {
 
 loginBtn.onclick = () => {
 
-const email=document.getElementById("email").value;
-const password=document.getElementById("password").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
 
 signInWithEmailAndPassword(auth,email,password)
 .then(()=>{
@@ -36,7 +36,7 @@ alert(error.message);
 
 }
 
-if(registerBtn){
+if (registerBtn) {
 
 registerBtn.onclick = () => {
 
@@ -59,7 +59,7 @@ alert(error.message);
 
 }
 
-if(logoutBtn){
+if (logoutBtn) {
 
 logoutBtn.onclick = () => {
 
