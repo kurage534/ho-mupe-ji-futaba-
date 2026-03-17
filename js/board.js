@@ -1,11 +1,11 @@
 import { app } from "./firebase.js";
 
 import {
-getFirestore,
-collection,
-addDoc,
-getDocs
-} from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const db = getFirestore(app);
 
@@ -15,9 +15,9 @@ const board = document.getElementById("board");
 
 if(postBtn){
 
-postBtn.addEventListener("click", async ()=>{
+postBtn.onclick = async () => {
 
-const message=messageInput.value;
+const message = messageInput.value;
 
 if(message==="") return;
 
@@ -29,7 +29,7 @@ messageInput.value="";
 
 loadPosts();
 
-});
+};
 
 }
 
@@ -39,13 +39,13 @@ if(!board) return;
 
 board.innerHTML="";
 
-const querySnapshot=await getDocs(collection(db,"posts"));
+const querySnapshot = await getDocs(collection(db,"posts"));
 
 querySnapshot.forEach((doc)=>{
 
-const data=doc.data();
+const data = doc.data();
 
-const div=document.createElement("div");
+const div = document.createElement("div");
 
 div.className="post";
 
